@@ -181,7 +181,7 @@ export default function AppBar() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 w-full text-white z-50 p-4"
+      className="fixed top-0 left-0 w-full text-white z-50 px-2 py-4"
       initial="hidden"
       animate="visible"
       variants={navVariants}
