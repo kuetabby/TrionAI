@@ -76,7 +76,7 @@ const stats: StatItem[] = [
   },
   {
     value: "5 %",
-    description: "Buy/Sell",
+    description: "Fee Buy/Sell",
     icon: <BiCoin className="text-xl" />,
   },
 ];
