@@ -197,9 +197,9 @@ export default function Tokenomics() {
           >
             {/* Token Stats */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-xl lg:text-2xl font-semibold text-white mb-6">
+              {/* <h3 className="text-xl lg:text-2xl font-semibold text-white mb-6">
                 Token Statistics
-              </h3>
+              </h3> */}
               <div className="space-y-4">
                 {stats.map((stat, index) => (
                   <motion.div
