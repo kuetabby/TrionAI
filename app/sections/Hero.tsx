@@ -341,6 +341,8 @@ export default function Hero() {
           />
         </motion.div>
       </motion.div>
+      {/* <div className="absolute top-0 right-0 w-full h-[100px] bg-gradient-to-t from-transparent to-black z-[10]" /> */}
+      {/* <div className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-black to-transparent z-10" /> */}
     </motion.section>
   );
 }

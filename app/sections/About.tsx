@@ -392,9 +392,12 @@ export default function About() {
 
   return (
     <section id="about" className="w-full py-20 bg-[#16232a] space-y-20">
+      {/* <div className="absolute top-0 right-0 w-full h-[100px] bg-gradient-to-t from-transparent to-black z-[10]" />
+      <div className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-black to-transparent z-10" /> */}
+
       {/* About Project Header */}
       <motion.div
-        className="container flex flex-col items-center mx-auto px-4 lg:px-6 text-center"
+        className="container flex flex-col items-center mx-auto px-4 lg:px-6 text-center mt-4"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
