@@ -187,11 +187,11 @@ export default function AppBar() {
       variants={navVariants}
     >
       <motion.nav
-        className={`container mx-auto flex items-center max-w-screen-xl justify-between py-4 px-6 transition-all duration-300 ${
+        className={`container mx-auto flex items-center max-w-screen-xl justify-between py-3 px-4 sm:px-6 transition-all duration-300 ${
           isScrolled
             ? "bg-[rgba(58,58,68,.4)] backdrop-blur-xl border-2 border-[#18aaea]/40 shadow-2xl shadow-[#18aaea]/20"
             : "bg-[rgba(58,58,68,.4)] backdrop-blur-lg border-2 border-[#18aaea]/25"
-        } rounded-2xl`}
+        } rounded-full`}
         animate={{
           scale: isScrolled ? 0.98 : 1,
         }}
@@ -203,7 +203,7 @@ export default function AppBar() {
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-1 group">
             <motion.div
               className="relative"
               // animate={{
@@ -216,6 +216,13 @@ export default function AppBar() {
               // }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#18aaea] to-[#16232a] rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* <Image
+                src="/assets/trion-coin.svg"
+                width={150}
+                height={100}
+                alt="coin"
+                className="w-20 h-auto"
+              /> */}
               <Image
                 src="/assets/Logo.svg"
                 alt="Trion AI"
@@ -225,7 +232,7 @@ export default function AppBar() {
                 priority
               />
             </motion.div>
-            <div className="flex flex-col">
+            <div className="flex flex-col ml-1">
               <span className="text-xl font-bold bg-gradient-to-r from-white to-[#18aaea] bg-clip-text text-transparent">
                 Trion AI
               </span>

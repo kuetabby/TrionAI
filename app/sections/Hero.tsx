@@ -309,11 +309,11 @@ export default function Hero() {
               >
                 <div className="w-32 h-32 bg-gradient-to-br from-[#18aaea] to-[#16232a] rounded-full flex items-center justify-center shadow-2xl">
                   <Image
-                    src="/assets/images/Logo.png"
+                    src="/assets/Logo.svg"
                     alt="Trion AI"
                     width={64}
                     height={64}
-                    className="rounded-full"
+                    className="rounded-full w-full h-auto p-3"
                   />
                 </div>
               </motion.div>

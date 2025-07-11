@@ -1,7 +1,7 @@
 "use client";
-
-import { motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { BiTrendingUp, BiShield, BiWallet, BiCoin } from "react-icons/bi";
 
 interface TokenAllocation {
@@ -61,23 +61,31 @@ const tokenAllocations: TokenAllocation[] = [
 const stats: StatItem[] = [
   {
     value: "Trion AI",
-    description: "Token Name",
-    icon: <BiCoin className="text-xl" />,
+    description: "Name",
+    icon: (
+      <Image src="/assets/Icon-1.svg" alt="t-name" width={150} height={100} />
+    ),
   },
   {
     value: "TRION",
     description: "Ticker",
-    icon: <BiCoin className="text-xl" />,
+    icon: (
+      <Image src="/assets/Icon-2.svg" alt="t-name" width={150} height={100} />
+    ),
   },
   {
     value: "100 M",
     description: "Total Supply",
-    icon: <BiCoin className="text-xl" />,
+    icon: (
+      <Image src="/assets/Icon-3.svg" alt="t-name" width={150} height={100} />
+    ),
   },
   {
     value: "5 %",
     description: "Fee Buy/Sell",
-    icon: <BiCoin className="text-xl" />,
+    icon: (
+      <Image src="/assets/Icon-4.svg" alt="t-name" width={150} height={100} />
+    ),
   },
 ];
 
@@ -128,7 +136,7 @@ export default function Tokenomics() {
       <div className="container mx-auto px-4 lg:px-6">
         {/* Header Section */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -146,7 +154,7 @@ export default function Tokenomics() {
         </motion.div>
 
         {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center perspective-1000">
           {/* Left Side - Interactive Pie Chart */}
           <motion.div
             className="flex flex-col items-center"
@@ -154,119 +162,29 @@ export default function Tokenomics() {
             initial="hidden"
             animate="visible"
           >
-            <motion.div className="relative" variants={itemVariants}>
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96">
-                <svg
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 320 320"
-                  className="transform -rotate-90"
-                >
-                  {/* Pie Slices */}
-                  {pieSlices.map((slice, index) => {
-                    const isActive = activeSlice === index;
-                    const radius = isActive ? 145 : 140;
-                    const strokeWidth = isActive ? 12 : 8;
-
-                    return (
-                      <motion.circle
-                        key={index}
-                        cx="160"
-                        cy="160"
-                        r={radius}
-                        fill="none"
-                        stroke={slice.color}
-                        strokeWidth={strokeWidth}
-                        strokeDasharray={`${
-                          (slice.percentage / 100) * 849.54
-                        } 849.54`}
-                        strokeDashoffset={-((slice.startAngle / 360) * 849.54)}
-                        className="cursor-pointer transition-all duration-300 drop-shadow-lg"
-                        onMouseEnter={() => setActiveSlice(index)}
-                        onMouseLeave={() => setActiveSlice(null)}
-                        initial={{ strokeDasharray: "0 849.54" }}
-                        animate={{
-                          strokeDasharray: `${
-                            (slice.percentage / 100) * 849.54
-                          } 849.54`,
-                        }}
-                        transition={{ duration: 1.2, delay: index * 0.1 }}
-                      />
-                    );
-                  })}
-                </svg>
-
-                {/* Center Content */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-4xl lg:text-5xl font-bold text-white mb-2">
-                      1B
-                    </div>
-                    <div className="text-sm text-gray-400">Total Supply</div>
-                    <div className="text-xs text-[#18aaea] mt-1">$TRION</div>
-                  </div>
-                </div>
-
-                {/* Active Slice Label */}
-                {activeSlice !== null && (
-                  <motion.div
-                    className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#16232a]/95 backdrop-blur-sm rounded-lg px-4 py-3 border border-[#18aaea]/30 shadow-xl"
-                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.8, y: 20 }}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className="w-3 h-3 rounded-full"
-                        style={{
-                          backgroundColor: tokenAllocations[activeSlice].color,
-                        }}
-                      />
-                      <div>
-                        <div className="text-white font-semibold text-sm">
-                          {tokenAllocations[activeSlice].label}
-                        </div>
-                        <div className="text-[#18aaea] text-sm">
-                          {tokenAllocations[activeSlice].percentage}% •{" "}
-                          {tokenAllocations[activeSlice].amount}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </div>
-            </motion.div>
-
-            {/* Compact Legend */}
             <motion.div
-              className="mt-8 flex flex-wrap justify-center gap-3"
-              variants={itemVariants}
+              className="flip-container" // This will be the container of the coin flip
+              style={{
+                transformStyle: "preserve-3d", // Needed for 3D flipping
+                transform: "rotateY(0deg)", // Initial state of the element
+              }}
+              animate={{
+                rotateY: [0, 180], // Define the flip rotation angle
+              }}
+              transition={{
+                duration: 1.25,
+                repeat: Infinity, // Flip infinitely
+                repeatType: "loop", // Make the flip repeat indefinitely
+                ease: "easeInOut",
+              }}
             >
-              {tokenAllocations.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-full border transition-all duration-300 cursor-pointer ${
-                    activeSlice === index
-                      ? "bg-[#18aaea]/20 border-[#18aaea]/50"
-                      : "bg-white/5 border-gray-600/30 hover:border-[#18aaea]/30"
-                  }`}
-                  onMouseEnter={() => setActiveSlice(index)}
-                  onMouseLeave={() => setActiveSlice(null)}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <div
-                    className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: item.color }}
-                  />
-                  <span className="text-white text-sm font-medium">
-                    {item.label}
-                  </span>
-                  <span className="text-[#18aaea] text-sm">
-                    {item.percentage}%
-                  </span>
-                </motion.div>
-              ))}
+              <Image
+                src="/assets/trion-coin.svg"
+                width={150}
+                height={100}
+                alt="coin"
+                className="w-full h-auto"
+              />
             </motion.div>
           </motion.div>
 
