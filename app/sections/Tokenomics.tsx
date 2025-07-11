@@ -60,24 +60,24 @@ const tokenAllocations: TokenAllocation[] = [
 // Data untuk Statistik
 const stats: StatItem[] = [
   {
-    value: "1B",
+    value: "Trion AI",
+    description: "Token Name",
+    icon: <BiCoin className="text-xl" />,
+  },
+  {
+    value: "TRION",
+    description: "Ticker",
+    icon: <BiCoin className="text-xl" />,
+  },
+  {
+    value: "100 M",
     description: "Total Supply",
     icon: <BiCoin className="text-xl" />,
   },
   {
-    value: "$0.15",
-    description: "Initial Price",
-    icon: <BiWallet className="text-xl" />,
-  },
-  {
-    value: "$50M",
-    description: "Market Cap",
-    icon: <BiTrendingUp className="text-xl" />,
-  },
-  {
-    value: "24 Months",
-    description: "Vesting Period",
-    icon: <BiShield className="text-xl" />,
+    value: "5 %",
+    description: "Buy/Sell",
+    icon: <BiCoin className="text-xl" />,
   },
 ];
 
@@ -140,7 +140,7 @@ export default function Tokenomics() {
             Let the games begin!
           </h1>
           <p className="text-base lg:text-lg text-gray-400 max-w-2xl mx-auto">
-            $TRION token supply is capped at 1 Billion tokens with strategic
+            $TRION token supply is capped at 100M tokens with strategic
             allocation for sustainable growth and fair distribution.
           </p>
         </motion.div>
@@ -311,7 +311,7 @@ export default function Tokenomics() {
         </div>
 
         {/* Bottom Section - Key Features */}
-        <motion.div
+        {/* <motion.div
           className="mt-16 lg:mt-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -357,7 +357,7 @@ export default function Tokenomics() {
               </div>
             </motion.div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

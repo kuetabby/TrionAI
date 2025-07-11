@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { CgArrowTopRight } from "react-icons/cg";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -116,7 +117,7 @@ export default function Hero() {
           {/* Left Column - Text Content */}
           <motion.div className="space-y-8" variants={itemVariants}>
             {/* Brand Badge - Positioned to avoid navbar overlap */}
-            <motion.div
+            {/* <motion.div
               className="inline-flex items-center gap-3 bg-[#16232a]/60 backdrop-blur-md rounded-full px-6 py-3 border border-[#18aaea]/30 shadow-lg mt-4"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -138,7 +139,9 @@ export default function Hero() {
                 Trion AI
               </span>
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            </motion.div>
+            </motion.div> */}
+
+            <div className="h-10" />
 
             {/* Main Heading */}
             <motion.h1
@@ -168,7 +171,7 @@ export default function Hero() {
 
             {/* Description */}
             <motion.p
-              className="text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl"
+              className="text-lg text-gray-300 leading-relaxed max-w-md"
               variants={itemVariants}
             >
               The world's first{" "}
@@ -182,7 +185,7 @@ export default function Hero() {
 
             {/* Action Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              className="flex flex-col sm:flex-row gap-4 pt-2"
               variants={itemVariants}
             >
               <motion.button
@@ -195,7 +198,10 @@ export default function Hero() {
                 onHoverStart={() => setIsHovered(true)}
                 onHoverEnd={() => setIsHovered(false)}
               >
-                <span className="relative z-10">Explore Trion AI</span>
+                <span className="relative z-10 flex items-center gap-2">
+                  AI Predict Platform
+                  <CgArrowTopRight style={{ fontSize: "1.3em" }} />
+                </span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-[#16232a] via-[#18aaea] to-[#18aaea] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   animate={isHovered ? { x: [0, 100, 0] } : {}}
@@ -212,7 +218,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="flex items-center gap-2">
-                  Contact Us
+                  Buy $TRION
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}

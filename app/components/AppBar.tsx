@@ -1,22 +1,34 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { findUsLink, socialsLink } from "../utils/constant";
+
+export const menuItems = [
+  { id: "hero", label: "Home", external: false },
+  { id: "why", label: "Why Us", external: false },
+  { id: "howtouse", label: "How to Use", external: false },
+  { id: "tokenomics", label: "Tokenomics", external: false },
+  { id: "roadmap", label: "Roadmap", external: false },
+  {
+    id: "docs",
+    label: "Documentation",
+    external: true,
+    link: socialsLink.whitepaper,
+  },
+  // {
+  //   id: "uniswap",
+  //   label: "Uniswap",
+  //   external: true,
+  //   link: findUsLink.uniswap,
+  // },
+];
 
 export default function AppBar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const menuItems = [
-    { id: "hero", label: "Home", external: false },
-    { id: "about", label: "About", external: false },
-    { id: "howtouse", label: "How to Use", external: false },
-    { id: "tokenomics", label: "Tokenomics", external: false },
-    { id: "roadmap", label: "Roadmap", external: false },
-  ];
 
   // Improved scroll detection with Intersection Observer
   useEffect(() => {
@@ -175,10 +187,10 @@ export default function AppBar() {
       variants={navVariants}
     >
       <motion.nav
-        className={`container mx-auto flex items-center max-w-6xl justify-between py-4 px-6 transition-all duration-300 ${
+        className={`container mx-auto flex items-center max-w-screen-xl justify-between py-4 px-6 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#16232a]/95 backdrop-blur-xl border border-[#18aaea]/40 shadow-2xl shadow-[#18aaea]/20"
-            : "bg-[#16232a]/60 backdrop-blur-lg border border-[#18aaea]/25"
+            ? "bg-[rgba(58,58,68,.4)] backdrop-blur-xl border-2 border-[#18aaea]/40 shadow-2xl shadow-[#18aaea]/20"
+            : "bg-[rgba(58,58,68,.4)] backdrop-blur-lg border-2 border-[#18aaea]/25"
         } rounded-2xl`}
         animate={{
           scale: isScrolled ? 0.98 : 1,
@@ -194,22 +206,22 @@ export default function AppBar() {
           <Link href="/" className="flex items-center gap-3 group">
             <motion.div
               className="relative"
-              animate={{
-                rotate: [0, 360],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "linear",
-              }}
+              // animate={{
+              //   rotate: [0, 360],
+              // }}
+              // transition={{
+              //   duration: 8,
+              //   repeat: Infinity,
+              //   ease: "linear",
+              // }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#18aaea] to-[#16232a] rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
               <Image
-                src="/assets/images/Logo.png"
+                src="/assets/Logo.svg"
                 alt="Trion AI"
                 width={32}
                 height={32}
-                className="relative rounded-full border-2 border-[#18aaea]/50"
+                className="relative w-16 h-auto rounded-full border-2 border-[#18aaea]/50 p-2"
                 priority
               />
             </motion.div>
@@ -225,52 +237,87 @@ export default function AppBar() {
         </motion.div>
 
         {/* Enhanced Desktop Navigation */}
-        <ul className="hidden md:flex gap-6 items-center">
+        <ul className="hidden lg:flex items-center">
           {menuItems.map((item, index) => (
-            <li key={item.id}>
-              <motion.button
-                onClick={() => handleNavigation(item.id, item.external)}
-                className={`relative px-4 py-2 rounded-lg transition-all duration-300 ${
-                  activeSection === item.id
-                    ? "text-[#18aaea]"
-                    : "text-gray-300 hover:text-white"
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                {activeSection === item.id && (
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-[#18aaea]/20 to-[#16232a]/20 rounded-lg border border-[#18aaea]/30"
-                    layoutId="activeBackground"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10 font-medium text-sm">
-                  {item.label}
-                </span>
-                {activeSection === item.id && (
-                  <motion.div
-                    className="absolute -bottom-1 left-1/2 w-2 h-2 bg-[#18aaea] rounded-full"
-                    style={{ x: "-50%" }}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                  />
-                )}
-              </motion.button>
+            <li key={item.id} className="text-lg">
+              {item.external && item.link ? (
+                <Link
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full md:w-auto text-gray-400 hover:text-white"
+                >
+                  <motion.button
+                    onClick={() => handleNavigation(item.id, item.external)}
+                    className={`relative px-4 py-2 rounded-lg transition-all duration-300 ${
+                      activeSection === item.id
+                        ? "text-[#18aaea]"
+                        : "text-gray-300 hover:text-white"
+                    }`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <span className="relative z-10 font-medium text-sm">
+                      {item.label}
+                    </span>
+                  </motion.button>
+                </Link>
+              ) : (
+                <motion.button
+                  onClick={() => handleNavigation(item.id, item.external)}
+                  className={`relative px-4 py-2 rounded-lg transition-all duration-300 ${
+                    activeSection === item.id
+                      ? "text-[#18aaea]"
+                      : "text-gray-400 hover:text-white"
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  {activeSection === item.id && (
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-[#18aaea]/20 to-[#16232a]/20 rounded-lg border border-[#18aaea]/30"
+                      layoutId="activeBackground"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                  <span className="relative z-10 font-medium text-sm">
+                    {item.label}
+                  </span>
+                  {activeSection === item.id && (
+                    <motion.div
+                      className="absolute -bottom-1 left-1/2 w-2 h-2 bg-[#18aaea] rounded-full"
+                      style={{ x: "-50%" }}
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 20,
+                      }}
+                    />
+                  )}
+                </motion.button>
+              )}
             </li>
           ))}
         </ul>
 
         {/* Enhanced CTA Button */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <motion.button
-            className="group relative px-6 py-3 bg-gradient-to-r from-[#18aaea] via-[#18aaea] to-[#16232a] rounded-full font-semibold overflow-hidden"
+            className="group relative px-5 py-2 bg-gradient-to-r from-[#18aaea] via-[#18aaea] to-[#16232a] rounded-full font-semibold overflow-hidden"
             whileHover={{
               scale: 1.05,
               boxShadow: "0 10px 30px rgba(24, 170, 234, 0.4)",
@@ -289,8 +336,8 @@ export default function AppBar() {
               }}
             />
             <span className="relative z-10 flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              $BALLON
+              {/* <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" /> */}
+              AI Predict
             </span>
           </motion.button>
         </div>
@@ -298,7 +345,7 @@ export default function AppBar() {
         {/* Enhanced Hamburger Menu */}
         <motion.button
           onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg hover:bg-[#18aaea]/10 transition-colors duration-200"
+          className="lg:hidden p-2 rounded-lg hover:bg-[#18aaea]/10 transition-colors duration-200"
           whileTap={{ scale: 0.9 }}
         >
           <motion.div
@@ -337,7 +384,7 @@ export default function AppBar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="md:hidden mt-2 mx-2"
+            className="lg:hidden mt-2 mx-2"
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -380,13 +427,14 @@ export default function AppBar() {
                   variants={menuItemVariants}
                 >
                   <motion.button
-                    className="w-full py-3 bg-gradient-to-r from-[#18aaea] via-[#18aaea] to-[#16232a] rounded-full font-semibold text-white"
+                    className="w-full py-2 bg-gradient-to-r from-[#18aaea] via-[#18aaea] to-[#16232a] rounded-full font-semibold text-white"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     <span className="flex items-center justify-center gap-2">
-                      <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                      $BALLON
+                      {/* <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" /> */}
+                      AI Predict Platform
+                      {/* $BALLON */}
                     </span>
                   </motion.button>
                 </motion.li>

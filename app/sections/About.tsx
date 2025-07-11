@@ -160,8 +160,10 @@ export default function About() {
 
   // Success Stats
   const successStats = [
-    { number: "10,000+", label: "Active Users" },
+    // { number: "10,000+", label: "Active Users" },
+    { number: "0", label: "Active Users" },
     { number: "95%", label: "Accuracy Rate" },
+    // { number: "20+", label: "Sports Covered" },
     { number: "20+", label: "Sports Covered" },
     { number: "24/7", label: "Live Updates" },
   ];
@@ -398,7 +400,7 @@ export default function About() {
         transition={{ duration: 0.8 }}
       >
         <h2 className="text-[#18aaea] mb-2 text-sm font-semibold uppercase tracking-wide">
-          About Project
+          About Trion AI
         </h2>
         <h1 className="text-3xl lg:text-5xl font-bold mb-4 text-white">
           Revolutionary AI-Powered Sports Betting Platform
@@ -444,7 +446,9 @@ export default function About() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
+        id="why"
       >
+        <div className="h-16" />
         <div className="text-center mb-16">
           <h2 className="text-[#18aaea] mb-2 text-sm font-semibold uppercase tracking-wide">
             Platform Features

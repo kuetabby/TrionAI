@@ -6,8 +6,8 @@ import { BiCheck } from "react-icons/bi";
 
 interface RoadmapPhase {
   phase: string;
-  month: string;
-  year?: string;
+  // month: string;
+  // year?: string;
   title: string;
   description: string;
   features: string[];
@@ -17,8 +17,6 @@ interface RoadmapPhase {
 const roadmapData: RoadmapPhase[] = [
   {
     phase: "Phase 1",
-    month: "September",
-    year: "2024",
     title: "Foundation & Core Infrastructure",
     description:
       "Establishing the fundamental architecture and core systems for Trion AI platform.",
@@ -28,12 +26,10 @@ const roadmapData: RoadmapPhase[] = [
       "Basic AI model integration",
       "Database infrastructure",
     ],
-    status: "completed",
+    status: "in-progress",
   },
   {
     phase: "Phase 2",
-    month: "April",
-    year: "2024",
     title: "AI Gaming Engine Development",
     description:
       "Building the core AI gaming engine with advanced machine learning capabilities.",
@@ -43,12 +39,10 @@ const roadmapData: RoadmapPhase[] = [
       "Performance optimization",
       "Beta testing framework",
     ],
-    status: "completed",
+    status: "upcoming",
   },
   {
     phase: "Phase 3",
-    month: "November",
-    year: "2024",
     title: "Enhanced User Experience",
     description:
       "Improving user interface and adding advanced gaming features for better engagement.",
@@ -58,12 +52,10 @@ const roadmapData: RoadmapPhase[] = [
       "Social features integration",
       "Mobile optimization",
     ],
-    status: "in-progress",
+    status: "upcoming",
   },
   {
     phase: "Phase 4",
-    month: "August",
-    year: "2025",
     title: "Blockchain Integration",
     description:
       "Implementing blockchain technology for secure transactions and tokenization.",
@@ -77,8 +69,6 @@ const roadmapData: RoadmapPhase[] = [
   },
   {
     phase: "Phase 5",
-    month: "June",
-    year: "2025",
     title: "Global Expansion & Partnerships",
     description:
       "Scaling the platform globally with strategic partnerships and enterprise solutions.",
@@ -172,10 +162,10 @@ export default function Roadmap() {
                   <h3 className="text-2xl lg:text-3xl font-bold text-[#18aaea] mb-2">
                     {roadmapData[currentIndex].phase}
                   </h3>
-                  <p className="text-gray-400 text-sm lg:text-base">
+                  {/* <p className="text-gray-400 text-sm lg:text-base">
                     {roadmapData[currentIndex].month}{" "}
                     {roadmapData[currentIndex].year}
-                  </p>
+                  </p> */}
                 </div>
                 <div className="flex items-center space-x-2">
                   <div
@@ -299,9 +289,9 @@ export default function Roadmap() {
                 </div>
                 {/* Phase */}
                 <p className="mt-6 font-semibold">{item.phase}</p>
-                <p className="text-xs opacity-75">
+                {/* <p className="text-xs opacity-75">
                   {item.month} {item.year}
-                </p>
+                </p> */}
               </motion.div>
             ))}
           </div>
