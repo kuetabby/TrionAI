@@ -232,7 +232,8 @@ export default function Hero() {
             {/* Stats */}
             <motion.div className="flex gap-8 pt-8" variants={itemVariants}>
               {[
-                { label: "AI Models", value: "100+" },
+                // { label: "AI Models", value: "100+" },
+                { label: "AI Models", value: "Trion AI" },
                 { label: "Predictions", value: "1M+" },
                 { label: "Accuracy", value: "95%" },
               ].map((stat, index) => (
