@@ -3,10 +3,10 @@ export const pairAddress = "-";
 
 export const socialsLink = {
   whitepaper: "/",
-  twitter: "https://x.com/",
-  telegram: "https://t.me/",
+  twitter: "https://x.com/TrionAI_Eth",
+  telegram: "https://t.me/TrionAIBet",
   medium: "https://medium.com",
-  email: "mailto:",
+  email: "mailto:info@trionai.bet",
   bot: "/",
 };
 
