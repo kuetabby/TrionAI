@@ -243,8 +243,8 @@ export default function Roadmap() {
                 }}
               />
               <Image
-                className="absolute drop-shadow-2xl"
-                src={"/assets/images/roadmap.png"}
+                className="absolute drop-shadow-xl"
+                src={"/assets/fluid.svg"}
                 alt="Roadmap Trion AI"
                 width={280}
                 height={280}
