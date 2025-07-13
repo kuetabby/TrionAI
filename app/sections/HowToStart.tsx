@@ -630,13 +630,13 @@ export default function Features() {
                   predictions.
                 </p>
                 <div className="flex flex-col gap-3">
-                  <motion.button
+                  {/* <motion.button
                     className="w-full py-2.5 bg-gradient-to-r from-[#18aaea] to-[#16232a] text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     Start Free Trial
-                  </motion.button>
+                  </motion.button> */}
                   <motion.button
                     className="w-full py-2.5 border border-[#18aaea]/50 text-[#18aaea] rounded-lg font-semibold hover:bg-[#18aaea]/10 transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
@@ -708,7 +708,30 @@ export default function Features() {
                 </motion.button>
 
                 {/* Next/Get Started Button */}
-                <motion.button
+                {activeStep === howToUseSteps.length - 1 ? (
+                  ""
+                ) : (
+                  <motion.button
+                    className="flex-1 flex items-center justify-center gap-2 px-6 py-2 bg-gradient-to-r from-[#18aaea] to-[#16232a] text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                    onClick={
+                      activeStep === howToUseSteps.length - 1
+                        ? () => {}
+                        : nextStep
+                    }
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {activeStep === howToUseSteps.length - 1 ? (
+                      "Get Started Now"
+                    ) : (
+                      <>
+                        Next Step
+                        <BiChevronRight />
+                      </>
+                    )}
+                  </motion.button>
+                )}
+                {/* <motion.button
                   className="flex-1 flex items-center justify-center gap-2 px-6 py-2 bg-gradient-to-r from-[#18aaea] to-[#16232a] text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                   onClick={
                     activeStep === howToUseSteps.length - 1
@@ -726,7 +749,7 @@ export default function Features() {
                       <BiChevronRight />
                     </>
                   )}
-                </motion.button>
+                </motion.button> */}
               </div>
 
               {/* Mobile Step Navigation */}
@@ -759,13 +782,13 @@ export default function Features() {
               Start your winning journey today!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
+              {/* <motion.button
                 className="px-6 py-3 bg-gradient-to-r from-[#18aaea] to-[#16232a] text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Start Free Trial
-              </motion.button>
+              </motion.button> */}
               <motion.button
                 className="px-6 py-3 border border-[#18aaea]/50 text-[#18aaea] rounded-lg font-semibold hover:bg-[#18aaea]/10 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
