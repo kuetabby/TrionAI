@@ -10,7 +10,7 @@ import "./globals.css";
 
 const app_title = "Trion AI";
 const app_name = "Trion AI";
-const description = "";
+const description = "Powering the AI Sports Betting Revolution";
 
 export const metadata: Metadata = {
   title: app_title,
