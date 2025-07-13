@@ -255,7 +255,6 @@ export default function AppBar() {
                   className="w-full md:w-auto text-gray-400 hover:text-white"
                 >
                   <motion.button
-                    onClick={() => handleNavigation(item.id, item.external)}
                     className={`relative px-4 py-2 rounded-lg transition-all duration-300 ${
                       activeSection === item.id
                         ? "text-[#18aaea]"
