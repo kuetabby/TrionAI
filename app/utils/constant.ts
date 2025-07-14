@@ -2,7 +2,7 @@ export const contractAddress = "-";
 export const pairAddress = "-";
 
 export const socialsLink = {
-  whitepaper: "https://docs.trionai.bet",
+  whitepaper: "https://documentation.trionai.bet",
   twitter: "https://x.com/TrionAI_Eth",
   telegram: "https://t.me/TrionAIBet",
   medium: "https://medium.com",
