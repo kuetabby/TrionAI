@@ -449,7 +449,7 @@ export default function About() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        id="why"
+        id="whyus"
       >
         <div className="h-16" />
         <div className="text-center mb-16">

@@ -7,7 +7,7 @@ import { findUsLink, socialsLink } from "../utils/constant";
 
 export const menuItems = [
   { id: "hero", label: "Home", external: false },
-  { id: "why", label: "Why Us", external: false },
+  { id: "whyus", label: "Why Us", external: false },
   { id: "howtouse", label: "How to Use", external: false },
   { id: "tokenomics", label: "Tokenomics", external: false },
   { id: "roadmap", label: "Roadmap", external: false },
