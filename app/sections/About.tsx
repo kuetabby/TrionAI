@@ -47,8 +47,8 @@ export default function About() {
         date: "Today",
         teams: [
           {
-            name: "Liverpool U21",
-            shortName: "LIV",
+            name: "Manchester United U21",
+            shortName: "MU U21",
             logo: "/assets/images/teams/mu.png",
             status: "Win",
             winProbability: "65%",
@@ -62,8 +62,8 @@ export default function About() {
             },
           },
           {
-            name: "Sparta Praha U21",
-            shortName: "SPR",
+            name: "Manchester City U21",
+            shortName: "MC U21",
             logo: "/assets/images/teams/mc.png",
             status: "Lose",
             winProbability: "35%",
@@ -78,7 +78,7 @@ export default function About() {
           },
         ],
         bettingAdvice:
-          "Combo Double chance: draw or Sparta Praha U21 and +2.5 goals",
+          "Combo Double chance: draw or Manchester City U21 and +2.5 goals",
       },
     },
     {
@@ -92,7 +92,7 @@ export default function About() {
         teams: [
           {
             name: "Manchester City",
-            shortName: "MCFC",
+            shortName: "MC",
             logo: "/assets/images/teams/mc.png",
             status: "Win",
             winProbability: "72%",
@@ -106,8 +106,8 @@ export default function About() {
             },
           },
           {
-            name: "Arsenal",
-            shortName: "ARS",
+            name: "Manchester United",
+            shortName: "MU",
             logo: "/assets/images/teams/mu.png",
             status: "Lose",
             winProbability: "28%",

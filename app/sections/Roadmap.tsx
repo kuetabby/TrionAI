@@ -61,9 +61,10 @@ const roadmapData: RoadmapPhase[] = [
     description:
       "Implementing blockchain technology for secure transactions and tokenization.",
     features: [
-      "Smart contract development",
-      "Token economics implementation",
-      "NFT marketplace integration",
+      // "Smart contract development",
+      // "Token economics implementation",
+      // "NFT marketplace integration",
+      "Multi-language support",
       "Decentralized governance",
       "Security audits and compliance",
       "Community feedback and iteration",
@@ -76,7 +77,6 @@ const roadmapData: RoadmapPhase[] = [
     description:
       "Scaling the platform globally with strategic partnerships and enterprise solutions.",
     features: [
-      "Multi-language support",
       "Regional compliance",
       "Partnership integrations",
       "Enterprise API development",
