@@ -56,7 +56,7 @@ export default function Hero() {
   return (
     <motion.section
       id="hero"
-      className="relative w-full min-h-screen flex items-center justify-center text-white overflow-hidden py-24"
+      className="relative w-full min-h-screen flex flex-wrap items-center justify-center text-white overflow-hidden py-24"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -110,6 +110,21 @@ export default function Hero() {
       >
         <div className="w-5 h-5 bg-[#18aaea] rounded-full opacity-20 blur-sm" />
       </motion.div>
+
+      <div className="relative w-[100vw]  max-w-screen-2xl mt-10 sm:mt-6 lg:mt-4">
+        <div className="absolute top-0 right-0 w-full h-4 bg-gradient-to-t from-transparent to-black z-[10]" />
+
+        <video
+          // className="absolute top-0 left-0 w-full h-full object-cover"
+          className="w-full h-auto object-cover 2xl:rounded-xl"
+          src="https://res.cloudinary.com/dwppcshmi/video/upload/v1752512907/ntysnpfy0dil1ujshlwa.mp4"
+          autoPlay
+          loop
+          muted
+        ></video>
+
+        <div className="absolute bottom-0 left-0 w-full h-4 bg-gradient-to-t from-black to-transparent z-10" />
+      </div>
 
       {/* Main Content Container */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-12">
@@ -257,7 +272,6 @@ export default function Hero() {
             className="relative flex items-center justify-center"
             variants={itemVariants}
           >
-            {/* Animated Rings */}
             <div className="relative">
               {[...Array(3)].map((_, i) => (
                 <motion.div
@@ -288,7 +302,6 @@ export default function Hero() {
                 />
               ))}
 
-              {/* Central Glow */}
               <motion.div
                 className="w-80 h-80 bg-gradient-to-r from-[#18aaea]/20 via-[#18aaea]/30 to-[#16232a]/20 rounded-full blur-3xl"
                 animate={{
@@ -302,7 +315,6 @@ export default function Hero() {
                 }}
               />
 
-              {/* Center Logo/Icon */}
               <motion.div
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
                 variants={floatingVariants}
