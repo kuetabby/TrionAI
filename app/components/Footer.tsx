@@ -169,21 +169,6 @@ export default function Footer() {
     // </footer>
     <footer className="bg-backgroundColor text-gray-300 py-10">
       {/* <div className="container mx-auto px-4 grid grid-cols-1 gap-8 items-center justify-center text-center max-w-screen-sm">
-        <h1 className="leading-tight flex flex-wrap justify-center gap-4">
-          <div className="flex flex-row items-center gap-2 bg-primaryColorLight/10 backdrop-blur-sm rounded-full px-4 py-2 border border-primaryColorLight/25 text-white">
-            <Image
-              src={LogoPurple}
-              alt="Representation of Bethive AI"
-              width={24}
-              height={24}
-              className="rounded-xl w-auto h-auto object-cover"
-              priority={false}
-            />
-            Bethive AI
-          </div>
-        </h1>
-        Bethive AI revolutionizes football betting with AI predictions,
-        empowering users with accurate insights and smarter strategies.
         <div className="mt-4 flex space-x-4 text-lg items-center justify-center">
           <a
             href={socialsLink.twitter}
@@ -304,14 +289,6 @@ export default function Footer() {
         >
           <p className="underline text-white text-sm">Privacy Policy</p>
         </Link>
-        {/* <p className="text-sm">
-          © {new Date().getFullYear()} Bethive AI. All Rights Reserved. |
-          Designed by{" "}
-          <a href="#" className="text-primaryColorLight hover:underline">
-            Bethive AI
-          </a>
-          .
-        </p> */}
       </div>
     </footer>
   );
