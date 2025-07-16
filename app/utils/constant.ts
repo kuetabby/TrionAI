@@ -15,6 +15,6 @@ export const findUsLink = {
   dexscreener: `https://dexscreener.com/ethereum/${contractAddress}`,
   solidproof: "https://app.solidproof.io/projects/",
   etherscan: `https://etherscan.io/token/${contractAddress}`,
-  uniswap: `https://app.uniswap.org/tokens/ethereum/${contractAddress}`,
+  uniswap: `https://app.uniswap.org/explore/tokens/ethereum/${contractAddress}`,
   coingecko: `https://www.coingecko.com/en/coins/`,
 };
