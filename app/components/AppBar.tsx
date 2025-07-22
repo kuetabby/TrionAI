@@ -322,30 +322,36 @@ export default function AppBar() {
 
         {/* Enhanced CTA Button */}
         <div className="hidden lg:block">
-          <motion.button
-            className="group relative px-5 py-2 bg-gradient-to-r from-[#18aaea] via-[#18aaea] to-[#16232a] rounded-full font-semibold overflow-hidden"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 10px 30px rgba(24, 170, 234, 0.4)",
-            }}
-            whileTap={{ scale: 0.95 }}
+          <Link
+            href={socialsLink.dapp}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-[#16232a] via-[#18aaea] to-[#18aaea] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              animate={{
-                x: ["-100%", "100%"],
+            <motion.button
+              className="group relative px-5 py-2 bg-gradient-to-r from-[#18aaea] via-[#18aaea] to-[#16232a] rounded-full font-semibold overflow-hidden"
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 10px 30px rgba(24, 170, 234, 0.4)",
               }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            />
-            <span className="relative z-10 flex items-center gap-2">
-              {/* <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" /> */}
-              AI Predict
-            </span>
-          </motion.button>
+              whileTap={{ scale: 0.95 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-[#16232a] via-[#18aaea] to-[#18aaea] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                animate={{
+                  x: ["-100%", "100%"],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+              <span className="relative z-10 flex items-center gap-2">
+                {/* <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" /> */}
+                AI Predict
+              </span>
+            </motion.button>
+          </Link>
         </div>
 
         {/* Enhanced Hamburger Menu */}
@@ -389,64 +395,71 @@ export default function AppBar() {
       {/* Enhanced Mobile Navigation */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            className="lg:hidden mt-2 mx-2"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={mobileMenuVariants}
+          <Link
+            href={socialsLink.dapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lg:hidden"
           >
-            <div className="bg-[#16232a]/95 backdrop-blur-xl border border-[#18aaea]/40 rounded-2xl shadow-2xl shadow-[#18aaea]/20 overflow-hidden">
-              <ul className="flex flex-col py-4">
-                {menuItems.map((item, index) => (
-                  <motion.li
-                    key={item.id}
-                    variants={menuItemVariants}
-                    whileHover={{ x: 10 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <button
-                      onClick={() => handleNavigation(item.id, item.external)}
-                      className={`w-full text-left px-6 py-3 transition-all duration-200 ${
-                        activeSection === item.id
-                          ? "text-[#18aaea] bg-[#18aaea]/10 border-l-4 border-[#18aaea]"
-                          : "text-gray-300 hover:text-white hover:bg-[#18aaea]/5"
-                      }`}
+            <motion.div
+              className="lg:hidden mt-2 mx-2"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={mobileMenuVariants}
+            >
+              <div className="bg-[#16232a]/95 backdrop-blur-xl border border-[#18aaea]/40 rounded-2xl shadow-2xl shadow-[#18aaea]/20 overflow-hidden">
+                <ul className="flex flex-col py-4">
+                  {menuItems.map((item, index) => (
+                    <motion.li
+                      key={item.id}
+                      variants={menuItemVariants}
+                      whileHover={{ x: 10 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <div className="flex items-center gap-3">
-                        <div
-                          className={`w-2 h-2 rounded-full ${
-                            activeSection === item.id
-                              ? "bg-[#18aaea]"
-                              : "bg-gray-500"
-                          }`}
-                        />
-                        <span className="font-medium">{item.label}</span>
-                      </div>
-                    </button>
-                  </motion.li>
-                ))}
+                      <button
+                        onClick={() => handleNavigation(item.id, item.external)}
+                        className={`w-full text-left px-6 py-3 transition-all duration-200 ${
+                          activeSection === item.id
+                            ? "text-[#18aaea] bg-[#18aaea]/10 border-l-4 border-[#18aaea]"
+                            : "text-gray-300 hover:text-white hover:bg-[#18aaea]/5"
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div
+                            className={`w-2 h-2 rounded-full ${
+                              activeSection === item.id
+                                ? "bg-[#18aaea]"
+                                : "bg-gray-500"
+                            }`}
+                          />
+                          <span className="font-medium">{item.label}</span>
+                        </div>
+                      </button>
+                    </motion.li>
+                  ))}
 
-                {/* Mobile CTA Button */}
-                <motion.li
-                  className="px-6 pt-4 pb-2"
-                  variants={menuItemVariants}
-                >
-                  <motion.button
-                    className="w-full py-2 bg-gradient-to-r from-[#18aaea] via-[#18aaea] to-[#16232a] rounded-full font-semibold text-white"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                  {/* Mobile CTA Button */}
+                  <motion.li
+                    className="px-6 pt-4 pb-2"
+                    variants={menuItemVariants}
                   >
-                    <span className="flex items-center justify-center gap-2">
-                      {/* <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" /> */}
-                      AI Predict Platform
-                      {/* $BALLON */}
-                    </span>
-                  </motion.button>
-                </motion.li>
-              </ul>
-            </div>
-          </motion.div>
+                    <motion.button
+                      className="w-full py-2 bg-gradient-to-r from-[#18aaea] via-[#18aaea] to-[#16232a] rounded-full font-semibold text-white"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <span className="flex items-center justify-center gap-2">
+                        {/* <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" /> */}
+                        AI Predict Platform
+                        {/* $BALLON */}
+                      </span>
+                    </motion.button>
+                  </motion.li>
+                </ul>
+              </div>
+            </motion.div>
+          </Link>
         )}
       </AnimatePresence>
 

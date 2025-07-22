@@ -8,6 +8,7 @@ export const socialsLink = {
   medium: "https://medium.com",
   email: "mailto:info@trionai.bet",
   bot: "/",
+  dapp: "https://dapp.trionai.bet",
 };
 
 export const findUsLink = {

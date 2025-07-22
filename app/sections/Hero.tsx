@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { CgArrowTopRight } from "react-icons/cg";
+import { findUsLink, socialsLink } from "../utils/constant";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -203,45 +205,57 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4 pt-2"
               variants={itemVariants}
             >
-              <motion.button
-                className="group relative px-8 py-4 bg-gradient-to-r from-[#18aaea] via-[#18aaea] to-[#16232a] rounded-full font-semibold text-lg overflow-hidden transition-all duration-300"
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 20px 40px rgba(24, 170, 234, 0.4)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                onHoverStart={() => setIsHovered(true)}
-                onHoverEnd={() => setIsHovered(false)}
+              <Link
+                href={socialsLink.dapp}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  AI Predict Platform
-                  <CgArrowTopRight style={{ fontSize: "1.3em" }} />
-                </span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-[#16232a] via-[#18aaea] to-[#18aaea] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  animate={isHovered ? { x: [0, 100, 0] } : {}}
-                  transition={{ duration: 0.6 }}
-                />
-              </motion.button>
-
-              <motion.button
-                className="group px-8 py-4 bg-transparent border-2 border-[#18aaea]/50 rounded-full font-semibold text-lg hover:bg-[#18aaea]/10 transition-all duration-300 backdrop-blur-sm"
-                whileHover={{
-                  scale: 1.05,
-                  borderColor: "rgba(24, 170, 234, 1)",
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="flex items-center gap-2">
-                  Buy $TRION
+                <motion.button
+                  className="group relative px-8 py-4 bg-gradient-to-r from-[#18aaea] via-[#18aaea] to-[#16232a] rounded-full font-semibold text-lg overflow-hidden transition-all duration-300"
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 20px 40px rgba(24, 170, 234, 0.4)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  onHoverStart={() => setIsHovered(true)}
+                  onHoverEnd={() => setIsHovered(false)}
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    AI Predict Platform
+                    <CgArrowTopRight style={{ fontSize: "1.3em" }} />
+                  </span>
                   <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    →
-                  </motion.div>
-                </span>
-              </motion.button>
+                    className="absolute inset-0 bg-gradient-to-r from-[#16232a] via-[#18aaea] to-[#18aaea] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    animate={isHovered ? { x: [0, 100, 0] } : {}}
+                    transition={{ duration: 0.6 }}
+                  />
+                </motion.button>
+              </Link>
+
+              <Link
+                href={findUsLink.uniswap}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <motion.button
+                  className="group px-8 py-4 bg-transparent border-2 border-[#18aaea]/50 rounded-full font-semibold text-lg hover:bg-[#18aaea]/10 transition-all duration-300 backdrop-blur-sm"
+                  whileHover={{
+                    scale: 1.05,
+                    borderColor: "rgba(24, 170, 234, 1)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="flex items-center gap-2">
+                    Buy $TRION
+                    <motion.div
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      →
+                    </motion.div>
+                  </span>
+                </motion.button>
+              </Link>
             </motion.div>
 
             {/* Stats */}
